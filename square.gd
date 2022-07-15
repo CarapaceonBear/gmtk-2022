@@ -5,15 +5,16 @@ onready var temp = $MeshInstance
 var cursed = false
 
 func _ready():
-#	temp.visible = false
-	pass
+	temp.visible = false
 
 func _process(delta):
 	if (cursed):
-		activate()
+		activate(true)
+	else:
+		activate(false)
 
-func activate():
-	temp.visible = false
+func activate(value):
+	temp.visible = value
 
 
 func _on_Square_body_entered(body):
