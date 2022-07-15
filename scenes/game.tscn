@@ -48,77 +48,77 @@ mesh = SubResource( 4 )
 skeleton = NodePath("")
 material/0 = SubResource( 5 )
 
-[node name="SquareA1" parent="Screen" instance=ExtResource( 3 )]
+[node name="SquareA1" parent="Screen" groups=["A_squares"] instance=ExtResource( 3 )]
 transform = Transform( 0.7, 0, 0, 0, 0.72, 0, 0, 0.368549, 0.644961, -3.059, 5.94726, -1.57376 )
 
-[node name="SquareA2" parent="Screen" instance=ExtResource( 3 )]
+[node name="SquareA2" parent="Screen" groups=["A_squares"] instance=ExtResource( 3 )]
 transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0.368549, 0.644961, -1.576, 5.94726, -1.57376 )
 
-[node name="SquareA3" parent="Screen" instance=ExtResource( 3 )]
+[node name="SquareA3" parent="Screen" groups=["A_squares"] instance=ExtResource( 3 )]
 transform = Transform( 0.709196, 0, 0, 0, 0.7, 0, 0, 0.368549, 0.644961, -0.061, 5.94726, -1.57376 )
 
-[node name="SquareA4" parent="Screen" instance=ExtResource( 3 )]
+[node name="SquareA4" parent="Screen" groups=["A_squares"] instance=ExtResource( 3 )]
 transform = Transform( 0.714131, 0, 0, 0, 0.7, 0, 0, 0.368549, 0.644961, 1.483, 5.94726, -1.57376 )
 
-[node name="SquareA5" parent="Screen" instance=ExtResource( 3 )]
+[node name="SquareA5" parent="Screen" groups=["A_squares"] instance=ExtResource( 3 )]
 transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0.368549, 0.644961, 3.076, 5.94726, -1.57376 )
 
-[node name="SquareB1" parent="Screen" instance=ExtResource( 3 )]
+[node name="SquareB1" parent="Screen" groups=["B_squares"] instance=ExtResource( 3 )]
 transform = Transform( 0.7, 0, 0, 0, 0.72, 0, 0, 0.35, 0.7, -3.145, 5.658, -0.263 )
 
-[node name="SquareB2" parent="Screen" instance=ExtResource( 3 )]
+[node name="SquareB2" parent="Screen" groups=["B_squares"] instance=ExtResource( 3 )]
 transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0.35, 0.7, -1.572, 5.658, -0.263 )
 
-[node name="SquareB3" parent="Screen" instance=ExtResource( 3 )]
+[node name="SquareB3" parent="Screen" groups=["B_squares"] instance=ExtResource( 3 )]
 transform = Transform( 0.744, 0, 0, 0, 0.7, 0, 0, 0.35, 0.7, -0.061, 5.658, -0.263 )
 
-[node name="SquareB4" parent="Screen" instance=ExtResource( 3 )]
+[node name="SquareB4" parent="Screen" groups=["B_squares"] instance=ExtResource( 3 )]
 transform = Transform( 0.727, 0, 0, 0, 0.7, 0, 0, 0.35, 0.7, 1.506, 5.658, -0.263 )
 
-[node name="SquareB5" parent="Screen" instance=ExtResource( 3 )]
+[node name="SquareB5" parent="Screen" groups=["B_squares"] instance=ExtResource( 3 )]
 transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0.35, 0.7, 3.099, 5.658, -0.263 )
 
-[node name="SquareC1" parent="Screen" instance=ExtResource( 3 )]
+[node name="SquareC1" parent="Screen" groups=["C_squares"] instance=ExtResource( 3 )]
 transform = Transform( 0.755, 0, 0, 0, 0.72, 0, 0, 0.3, 0.7, -3.272, 5.273, 1.095 )
 
-[node name="SquareC2" parent="Screen" instance=ExtResource( 3 )]
+[node name="SquareC2" parent="Screen" groups=["C_squares"] instance=ExtResource( 3 )]
 transform = Transform( 0.736, 0, 0, 0, 0.7, 0, 0, 0.3, 0.7, -1.624, 5.273, 1.095 )
 
-[node name="SquareC3" parent="Screen" instance=ExtResource( 3 )]
+[node name="SquareC3" parent="Screen" groups=["C_squares"] instance=ExtResource( 3 )]
 transform = Transform( 0.769, 0, 0, 0, 0.7, 0, 0, 0.3, 0.7, -0.061, 5.273, 1.095 )
 
-[node name="SquareC4" parent="Screen" instance=ExtResource( 3 )]
+[node name="SquareC4" parent="Screen" groups=["C_squares"] instance=ExtResource( 3 )]
 transform = Transform( 0.76, 0, 0, 0, 0.7, 0, 0, 0.3, 0.7, 1.583, 5.273, 1.095 )
 
-[node name="SquareC5" parent="Screen" instance=ExtResource( 3 )]
+[node name="SquareC5" parent="Screen" groups=["C_squares"] instance=ExtResource( 3 )]
 transform = Transform( 0.78, 0, 0, 0, 0.7, 0, 0, 0.3, 0.7, 3.257, 5.273, 1.095 )
 
-[node name="SquareD1" parent="Screen" instance=ExtResource( 3 )]
+[node name="SquareD1" parent="Screen" groups=["D__squares"] instance=ExtResource( 3 )]
 transform = Transform( 0.775, 0, 0, 0, 0.72, 0, 0, 0.25, 0.73, -3.365, 5.004, 2.575 )
 
-[node name="SquareD2" parent="Screen" instance=ExtResource( 3 )]
+[node name="SquareD2" parent="Screen" groups=["D_squares"] instance=ExtResource( 3 )]
 transform = Transform( 0.762, 0, 0, 0, 0.7, 0, 0, 0.25, 0.73, -1.686, 5.004, 2.575 )
 
-[node name="SquareD3" parent="Screen" instance=ExtResource( 3 )]
+[node name="SquareD3" parent="Screen" groups=["D_squares"] instance=ExtResource( 3 )]
 transform = Transform( 0.812, 0, 0, 0, 0.7, 0, 0, 0.25, 0.73, -0.03, 5.004, 2.575 )
 
-[node name="SquareD4" parent="Screen" instance=ExtResource( 3 )]
+[node name="SquareD4" parent="Screen" groups=["D_squares"] instance=ExtResource( 3 )]
 transform = Transform( 0.781, 0, 0, 0, 0.7, 0, 0, 0.25, 0.73, 1.629, 5.004, 2.575 )
 
-[node name="SquareD5" parent="Screen" instance=ExtResource( 3 )]
+[node name="SquareD5" parent="Screen" groups=["D_squares"] instance=ExtResource( 3 )]
 transform = Transform( 0.813, 0, 0, 0, 0.7, 0, 0, 0.25, 0.73, 3.381, 5.004, 2.575 )
 
-[node name="SquareE1" parent="Screen" instance=ExtResource( 3 )]
+[node name="SquareE1" parent="Screen" groups=["E_squares"] instance=ExtResource( 3 )]
 transform = Transform( 0.815, 0, 0, 0, 0.72, 0, 0, 0.2, 0.765, -3.465, 4.728, 4.22 )
 
-[node name="SquareE2" parent="Screen" instance=ExtResource( 3 )]
+[node name="SquareE2" parent="Screen" groups=["E_squares"] instance=ExtResource( 3 )]
 transform = Transform( 0.794, 0, 0, 0, 0.7, 0, 0, 0.2, 0.765, -1.752, 4.728, 4.22 )
 
-[node name="SquareE3" parent="Screen" instance=ExtResource( 3 )]
+[node name="SquareE3" parent="Screen" groups=["E_squares"] instance=ExtResource( 3 )]
 transform = Transform( 0.833, 0, 0, 0, 0.7, 0, 0, 0.2, 0.765, -0.044, 4.728, 4.22 )
 
-[node name="SquareE4" parent="Screen" instance=ExtResource( 3 )]
+[node name="SquareE4" parent="Screen" groups=["E_squares"] instance=ExtResource( 3 )]
 transform = Transform( 0.828, 0, 0, 0, 0.7, 0, 0, 0.2, 0.765, 1.695, 4.728, 4.22 )
 
-[node name="SquareE5" parent="Screen" instance=ExtResource( 3 )]
+[node name="SquareE5" parent="Screen" groups=["E_squares"] instance=ExtResource( 3 )]
 transform = Transform( 0.813, 0, 0, 0, 0.7, 0, 0, 0.2, 0.765, 3.381, 4.728, 4.22 )

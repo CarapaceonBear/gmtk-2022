@@ -6,9 +6,25 @@ onready var cursor = $Cursor
 var mouse_pos = Vector2()
 var point = Vector3()
 var z_depth = 8
+signal fire_click(boolean)
+enum States {ACTIVE, INACTIVE}
+var current_state = States.ACTIVE
+var grid = [[],[],[],[],[]]
+var grid_groups = ["A_squares", "B_squares", "C_squares", "D_squares", "E_squares"]
 
 func _ready():
-	pass
+#	grid = [[A1,A2,A3,A4,A5],[B1,B2,B3,B4,B5]etc]
+	for n in 5:
+		var row = get_tree().get_nodes_in_group(grid_groups[n])
+		for square in row:
+			grid[n].append(square)
+#	for element in grid:
+#		for index in element:
+#			print(index)
+
+func _input(event):
+	if(event.is_action_pressed("click")):
+		emit_signal("fire_click", true)
 
 func _physics_process(delta):
 	point = _mouse_track()
