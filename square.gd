@@ -19,9 +19,9 @@ func _ready():
 
 func activate(value):
 	if (cursed and not filled):
-		temp.visible = value
+#		temp.visible = value
 		filled = true
-		print(self.name)
+#		print(self.name)
 		emit_signal("identify", self.name)
 
 func _on_Square_body_entered(body):

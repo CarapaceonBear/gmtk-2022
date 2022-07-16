@@ -34,6 +34,7 @@ click={
 [physics]
 
 common/enable_pause_aware_picking=true
+3d/default_gravity=18.0
 
 [rendering]
 

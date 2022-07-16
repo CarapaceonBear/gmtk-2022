@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scenes/table.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/game.gd" type="Script" id=2]
 [ext_resource path="res://scenes/square.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/walls_physics.tres" type="PhysicsMaterial" id=4]
 
 [sub_resource type="CubeMesh" id=1]
 
@@ -17,6 +18,12 @@ radius = 0.263226
 [sub_resource type="SpatialMaterial" id=5]
 flags_transparent = true
 albedo_color = Color( 0.905882, 0.980392, 0.490196, 0.231373 )
+
+[sub_resource type="BoxShape" id=6]
+extents = Vector3( 0.0324278, 2.02154, 6.91681 )
+
+[sub_resource type="BoxShape" id=7]
+extents = Vector3( 7.26081, 0.33223, 7.14633 )
 
 [node name="Game" type="Spatial"]
 script = ExtResource( 2 )
@@ -124,78 +131,184 @@ transform = Transform( 0.828, 0, 0, 0, 0.7, 0, 0, 0.2, 0.765, 1.695, 4.728, 4.22
 transform = Transform( 0.813, 0, 0, 0, 0.7, 0, 0, 0.2, 0.765, 3.381, 4.728, 4.22 )
 
 [node name="Grid" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.51107, 0 )
 
 [node name="A1" type="Position3D" parent="Grid" groups=["A_grid"]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.44315, 0.78069, -5.22027 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.44315, 0.751431, -5.22027 )
 
 [node name="A2" type="Position3D" parent="Grid" groups=["A_grid"]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.78308, 0.78069, -5.22027 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.78308, 0.751431, -5.22027 )
 
 [node name="A3" type="Position3D" parent="Grid" groups=["A_grid"]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.107637, 0.78069, -5.22027 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.107637, 0.751431, -5.22027 )
 
 [node name="A4" type="Position3D" parent="Grid" groups=["A_grid"]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.66007, 0.78069, -5.22027 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.66007, 0.751431, -5.22027 )
 
 [node name="A5" type="Position3D" parent="Grid" groups=["A_grid"]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4739, 0.78069, -5.22027 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4739, 0.751431, -5.22027 )
 
 [node name="B1" type="Position3D" parent="Grid" groups=["B_grid"]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.44315, 0.78069, -2.65561 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.44315, 0.751431, -2.65561 )
 
 [node name="B2" type="Position3D" parent="Grid" groups=["B_grid"]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.78308, 0.78069, -2.65561 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.78308, 0.751431, -2.65561 )
 
 [node name="B3" type="Position3D" parent="Grid" groups=["B_grid"]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.107637, 0.78069, -2.65561 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.107637, 0.751431, -2.65561 )
 
 [node name="B4" type="Position3D" parent="Grid" groups=["B_grid"]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.66007, 0.78069, -2.65561 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.66007, 0.751431, -2.65561 )
 
 [node name="B5" type="Position3D" parent="Grid" groups=["B_grid"]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4739, 0.78069, -2.65561 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4739, 0.751431, -2.65561 )
 
 [node name="C1" type="Position3D" parent="Grid" groups=["C_grid"]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.44315, 0.78069, -0.108875 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.44315, 0.751431, -0.108875 )
 
 [node name="C2" type="Position3D" parent="Grid" groups=["C_grid"]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.78308, 0.78069, -0.108875 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.78308, 0.751431, -0.108875 )
 
 [node name="C3" type="Position3D" parent="Grid" groups=["C_grid"]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.107637, 0.78069, -0.108875 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.107637, 0.751431, -0.108875 )
 
 [node name="C4" type="Position3D" parent="Grid" groups=["C_grid"]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.66007, 0.78069, -0.108875 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.66007, 0.751431, -0.108875 )
 
 [node name="C5" type="Position3D" parent="Grid" groups=["C_grid"]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4739, 0.78069, -0.108875 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4739, 0.751431, -0.108875 )
 
 [node name="D1" type="Position3D" parent="Grid" groups=["D_grid"]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.44315, 0.78069, 2.50959 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.44315, 0.751431, 2.50959 )
 
 [node name="D2" type="Position3D" parent="Grid" groups=["D_grid"]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.78308, 0.78069, 2.50959 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.78308, 0.751431, 2.50959 )
 
 [node name="D3" type="Position3D" parent="Grid" groups=["D_grid"]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.107637, 0.78069, 2.50959 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.107637, 0.751431, 2.50959 )
 
 [node name="D4" type="Position3D" parent="Grid" groups=["D_grid"]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.66007, 0.78069, 2.50959 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.66007, 0.751431, 2.50959 )
 
 [node name="D5" type="Position3D" parent="Grid" groups=["D_grid"]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4739, 0.78069, 2.50959 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4739, 0.751431, 2.50959 )
 
 [node name="E1" type="Position3D" parent="Grid" groups=["E_grid"]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.44315, 0.78069, 5.16393 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.44315, 0.751431, 5.16393 )
 
 [node name="E2" type="Position3D" parent="Grid" groups=["E_grid"]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.78308, 0.78069, 5.16393 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.78308, 0.751431, 5.16393 )
 
 [node name="E3" type="Position3D" parent="Grid" groups=["E_grid"]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.107637, 0.78069, 5.16393 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.107637, 0.751431, 5.16393 )
 
 [node name="E4" type="Position3D" parent="Grid" groups=["E_grid"]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.66007, 0.78069, 5.16393 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.66007, 0.751431, 5.16393 )
 
 [node name="E5" type="Position3D" parent="Grid" groups=["E_grid"]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4739, 0.78069, 5.16393 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4739, 0.751431, 5.16393 )
+
+[node name="CollisionLines" type="Spatial" parent="."]
+
+[node name="Column1" type="StaticBody" parent="CollisionLines"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.75711, 0.0998414, 0 )
+physics_material_override = ExtResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="CollisionLines/Column1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.98269, 0 )
+shape = SubResource( 6 )
+
+[node name="Column2" type="StaticBody" parent="CollisionLines"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.14037, 0.0998414, 0 )
+physics_material_override = ExtResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="CollisionLines/Column2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.98269, 0 )
+shape = SubResource( 6 )
+
+[node name="Column3" type="StaticBody" parent="CollisionLines"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.45393, 0.0998414, 0 )
+physics_material_override = ExtResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="CollisionLines/Column3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.98269, 0 )
+shape = SubResource( 6 )
+
+[node name="Column4" type="StaticBody" parent="CollisionLines"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.28719, 0.0998414, 0 )
+physics_material_override = ExtResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="CollisionLines/Column4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.98269, 0 )
+shape = SubResource( 6 )
+
+[node name="Column5" type="StaticBody" parent="CollisionLines"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0331, 0.0998414, 0 )
+physics_material_override = ExtResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="CollisionLines/Column5"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.98269, 0 )
+shape = SubResource( 6 )
+
+[node name="Column6" type="StaticBody" parent="CollisionLines"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.83378, 0.0998414, 0 )
+physics_material_override = ExtResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="CollisionLines/Column6"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.98269, 0 )
+shape = SubResource( 6 )
+
+[node name="Row1" type="StaticBody" parent="CollisionLines"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.0950212, 0.0998414, -6.42361 )
+physics_material_override = ExtResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="CollisionLines/Row1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.98269, 0 )
+shape = SubResource( 6 )
+
+[node name="Row2" type="StaticBody" parent="CollisionLines"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.0950212, 0.0998414, -3.98761 )
+physics_material_override = ExtResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="CollisionLines/Row2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.98269, 0 )
+shape = SubResource( 6 )
+
+[node name="Row3" type="StaticBody" parent="CollisionLines"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.0950212, 0.0998414, -1.46973 )
+physics_material_override = ExtResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="CollisionLines/Row3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.98269, 0 )
+shape = SubResource( 6 )
+
+[node name="Row4" type="StaticBody" parent="CollisionLines"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.0950212, 0.0998414, 1.11963 )
+physics_material_override = ExtResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="CollisionLines/Row4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.98269, 0 )
+shape = SubResource( 6 )
+
+[node name="Row5" type="StaticBody" parent="CollisionLines"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.0950212, 0.0998414, 3.71192 )
+physics_material_override = ExtResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="CollisionLines/Row5"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.98269, 0 )
+shape = SubResource( 6 )
+
+[node name="Row6" type="StaticBody" parent="CollisionLines"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.0950212, 0.0998414, 6.35393 )
+physics_material_override = ExtResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="CollisionLines/Row6"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.98269, 0 )
+shape = SubResource( 6 )
+
+[node name="FloorArea" type="Area" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="FloorArea"]
+shape = SubResource( 7 )
+
+[connection signal="body_entered" from="FloorArea" to="." method="_on_FloorArea_body_entered"]

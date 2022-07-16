@@ -63,3 +63,23 @@ func spawn_die(grid_position):
 	var new_die = die.instance()
 	grid_position.add_child(new_die)
 	new_die.global_transform.origin = grid_position.global_transform.origin
+
+func get_value_from_rotation(rotation):
+	var value = 1
+	if (rotation.x > 88 and rotation.x < 92):
+		value = 2
+	elif (rotation.z < -88 and rotation.z > -92):
+		value = 3
+	elif (rotation.z > 88 and rotation.z < 92):
+		value = 4
+	elif (rotation.x < -88 and rotation.x > -92):
+		value = 5
+	elif ((rotation.z > 178 and rotation.z < 182) or (rotation.z < -178 and rotation.z > -182)):
+		value = 6
+	print(value)
+
+func _on_FloorArea_body_entered(body):
+	if(body.has_method("tell_rotation")):
+		yield(get_tree().create_timer(1), "timeout")
+		var die_rotation = body.tell_rotation()
+		get_value_from_rotation(die_rotation)
