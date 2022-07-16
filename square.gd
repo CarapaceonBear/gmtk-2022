@@ -5,6 +5,7 @@ onready var level = $"../.."
 
 var cursed = false
 var filled = false
+signal identify(name)
 
 func _ready():
 	temp.visible = false
@@ -20,6 +21,8 @@ func activate(value):
 	if (cursed and not filled):
 		temp.visible = value
 		filled = true
+		print(self.name)
+		emit_signal("identify", self.name)
 
 func _on_Square_body_entered(body):
 	if (body.is_in_group("cursor")):

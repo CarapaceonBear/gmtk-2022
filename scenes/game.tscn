@@ -93,7 +93,7 @@ transform = Transform( 0.76, 0, 0, 0, 0.7, 0, 0, 0.3, 0.7, 1.583, 5.273, 1.095 )
 [node name="SquareC5" parent="Screen" groups=["C_squares"] instance=ExtResource( 3 )]
 transform = Transform( 0.78, 0, 0, 0, 0.7, 0, 0, 0.3, 0.7, 3.257, 5.273, 1.095 )
 
-[node name="SquareD1" parent="Screen" groups=["D__squares"] instance=ExtResource( 3 )]
+[node name="SquareD1" parent="Screen" groups=["D_squares"] instance=ExtResource( 3 )]
 transform = Transform( 0.775, 0, 0, 0, 0.72, 0, 0, 0.25, 0.73, -3.365, 5.004, 2.575 )
 
 [node name="SquareD2" parent="Screen" groups=["D_squares"] instance=ExtResource( 3 )]
@@ -126,76 +126,76 @@ transform = Transform( 0.813, 0, 0, 0, 0.7, 0, 0, 0.2, 0.765, 3.381, 4.728, 4.22
 [node name="Grid" type="Spatial" parent="."]
 
 [node name="A1" type="Position3D" parent="Grid" groups=["A_grid"]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.44315, 0.0702255, -5.22027 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.44315, 0.78069, -5.22027 )
 
 [node name="A2" type="Position3D" parent="Grid" groups=["A_grid"]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.78308, 0.0702255, -5.22027 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.78308, 0.78069, -5.22027 )
 
 [node name="A3" type="Position3D" parent="Grid" groups=["A_grid"]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.107637, 0.0702255, -5.22027 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.107637, 0.78069, -5.22027 )
 
 [node name="A4" type="Position3D" parent="Grid" groups=["A_grid"]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.66007, 0.0702255, -5.22027 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.66007, 0.78069, -5.22027 )
 
 [node name="A5" type="Position3D" parent="Grid" groups=["A_grid"]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4739, 0.0702255, -5.22027 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4739, 0.78069, -5.22027 )
 
 [node name="B1" type="Position3D" parent="Grid" groups=["B_grid"]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.44315, 0.0702255, -2.65561 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.44315, 0.78069, -2.65561 )
 
 [node name="B2" type="Position3D" parent="Grid" groups=["B_grid"]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.78308, 0.0702255, -2.65561 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.78308, 0.78069, -2.65561 )
 
 [node name="B3" type="Position3D" parent="Grid" groups=["B_grid"]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.107637, 0.0702255, -2.65561 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.107637, 0.78069, -2.65561 )
 
 [node name="B4" type="Position3D" parent="Grid" groups=["B_grid"]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.66007, 0.0702255, -2.65561 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.66007, 0.78069, -2.65561 )
 
 [node name="B5" type="Position3D" parent="Grid" groups=["B_grid"]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4739, 0.0702255, -2.65561 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4739, 0.78069, -2.65561 )
 
 [node name="C1" type="Position3D" parent="Grid" groups=["C_grid"]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.44315, 0.0702255, -0.108875 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.44315, 0.78069, -0.108875 )
 
 [node name="C2" type="Position3D" parent="Grid" groups=["C_grid"]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.78308, 0.0702255, -0.108875 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.78308, 0.78069, -0.108875 )
 
 [node name="C3" type="Position3D" parent="Grid" groups=["C_grid"]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.107637, 0.0702255, -0.108875 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.107637, 0.78069, -0.108875 )
 
 [node name="C4" type="Position3D" parent="Grid" groups=["C_grid"]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.66007, 0.0702255, -0.108875 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.66007, 0.78069, -0.108875 )
 
 [node name="C5" type="Position3D" parent="Grid" groups=["C_grid"]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4739, 0.0702255, -0.108875 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4739, 0.78069, -0.108875 )
 
 [node name="D1" type="Position3D" parent="Grid" groups=["D_grid"]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.44315, 0.0702255, 2.50959 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.44315, 0.78069, 2.50959 )
 
 [node name="D2" type="Position3D" parent="Grid" groups=["D_grid"]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.78308, 0.0702255, 2.50959 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.78308, 0.78069, 2.50959 )
 
 [node name="D3" type="Position3D" parent="Grid" groups=["D_grid"]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.107637, 0.0702255, 2.50959 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.107637, 0.78069, 2.50959 )
 
 [node name="D4" type="Position3D" parent="Grid" groups=["D_grid"]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.66007, 0.0702255, 2.50959 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.66007, 0.78069, 2.50959 )
 
 [node name="D5" type="Position3D" parent="Grid" groups=["D_grid"]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4739, 0.0702255, 2.50959 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4739, 0.78069, 2.50959 )
 
 [node name="E1" type="Position3D" parent="Grid" groups=["E_grid"]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.44315, 0.0702255, 5.16393 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.44315, 0.78069, 5.16393 )
 
 [node name="E2" type="Position3D" parent="Grid" groups=["E_grid"]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.78308, 0.0702255, 5.16393 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.78308, 0.78069, 5.16393 )
 
 [node name="E3" type="Position3D" parent="Grid" groups=["E_grid"]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.107637, 0.0702255, 5.16393 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.107637, 0.78069, 5.16393 )
 
 [node name="E4" type="Position3D" parent="Grid" groups=["E_grid"]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.66007, 0.0702255, 5.16393 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.66007, 0.78069, 5.16393 )
 
 [node name="E5" type="Position3D" parent="Grid" groups=["E_grid"]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4739, 0.0702255, 5.16393 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4739, 0.78069, 5.16393 )

@@ -22,15 +22,16 @@ func _ready():
 		var row = get_tree().get_nodes_in_group(square_groups[n])
 		for square in row:
 			squares[n].append(square)
+			square.connect("identify", self, "check_squares")
 		row = get_tree().get_nodes_in_group(grid_groups[n])
 		for position in row:
 			grid[n].append(position)
-	for row in squares:
-		for index in row:
-			print(index)
-	for row in grid:
-		for index in row:
-			print(index)
+#	for row in squares:
+#		for index in row:
+#			print(index)
+#	for row in grid:
+#		for index in row:
+#			print(index)
 
 func _input(event):
 	if(event.is_action_pressed("click")):
@@ -43,3 +44,22 @@ func _physics_process(delta):
 func _mouse_track():
 	mouse_pos = get_viewport().get_mouse_position()
 	return camera.project_position(mouse_pos, z_depth)
+
+func check_squares(name):
+	var squares_indices
+	var y = 0
+	for row in squares:
+		var x = 0
+		for element in row:
+			if (element.name == name):
+				squares_indices = [y, x]
+			x += 1
+		y += 1
+	var target_in_grid = grid[squares_indices[0]][squares_indices[1]]
+	spawn_die(target_in_grid)
+#	print (target_in_grid.name)
+
+func spawn_die(grid_position):
+	var new_die = die.instance()
+	grid_position.add_child(new_die)
+	new_die.global_transform.origin = grid_position.global_transform.origin
