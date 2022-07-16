@@ -73,29 +73,21 @@ func check_adjacent_in_grid(indices):
 		var above = grid[indices[0] - 1][indices[1]]
 		if (above.get_child_count() != 0):
 			rerolling = true
-			var current_value = get_value_from_rotation(above.get_children()[0].tell_rotation())
-			update_score(current_value, false)
 			above.get_children()[0].reroll()
 	if (indices[0] != 4):
 		var below = grid[indices[0] + 1][indices[1]]
 		if (below.get_child_count() != 0):
 			rerolling = true
-			var current_value = get_value_from_rotation(below.get_children()[0].tell_rotation())
-			update_score(current_value, false)
 			below.get_children()[0].reroll()
 	if (indices[1] != 0):
 		var left = grid[indices[0]][indices[1] - 1]
 		if (left.get_child_count() != 0):
 			rerolling = true
-			var current_value = get_value_from_rotation(left.get_children()[0].tell_rotation())
-			update_score(current_value, false)
 			left.get_children()[0].reroll()
 	if (indices[1] != 4):
 		var right = grid[indices[0]][indices[1] + 1]
 		if (right.get_child_count() != 0):
 			rerolling = true
-			var current_value = get_value_from_rotation(right.get_children()[0].tell_rotation())
-			update_score(current_value, false)
 			right.get_children()[0].reroll()
 	return rerolling
 
@@ -119,15 +111,17 @@ func get_value_from_rotation(rotation):
 		value = 6
 	return (value)
 
-func update_score(value, add):
-	if (add):
-		score += value
-	else:
-		score -= value
+func update_score():
+	var total = 0
+	for row in grid:
+		for element in row:
+			if (element.get_child_count() != 0):
+				total += get_value_from_rotation(element.get_children()[0].tell_rotation())
+	score = total
 	score_label.text = str(score)
-	score_box.global_scale(Vector3(1, 1, 1.2))
-	yield(get_tree().create_timer(.1), "timeout")
-	score_box.global_scale(Vector3(1, 1, 0.8))
+#	score_box.global_scale(Vector3(1, 1, 1.2))
+#	yield(get_tree().create_timer(.1), "timeout")
+#	score_box.global_scale(Vector3(1, 1, 0.8))
 
 func _on_FloorArea_body_entered(body):
 	if(body.has_method("tell_rotation")):
@@ -139,9 +133,7 @@ func _on_FloorArea_body_entered(body):
 			if (!rerolling):
 				current_state = States.PLACING
 		yield(get_tree().create_timer(1), "timeout")
-		var die_rotation = body.tell_rotation()
-		var value = get_value_from_rotation(die_rotation)
-		update_score(value, true)
+		update_score()
 		if (current_state == States.RESOLVING):
 #			yield(get_tree().create_timer(1), "timeout")
 			current_state = States.PLACING
