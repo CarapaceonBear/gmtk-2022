@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://scenes/table.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/game.gd" type="Script" id=2]
@@ -6,6 +6,9 @@
 [ext_resource path="res://scenes/walls_physics.tres" type="PhysicsMaterial" id=4]
 [ext_resource path="res://fonts/font.tres" type="DynamicFont" id=5]
 [ext_resource path="res://simon-berger-JH_R66BihvA-unsplash.jpg" type="Texture" id=6]
+[ext_resource path="res://scenes/button.tscn" type="PackedScene" id=7]
+[ext_resource path="res://checkbox.png" type="Texture" id=8]
+[ext_resource path="res://cross.png" type="Texture" id=9]
 
 [sub_resource type="CubeMesh" id=1]
 
@@ -30,10 +33,32 @@ extents = Vector3( 7.26081, 0.33223, 7.14633 )
 [sub_resource type="ViewportTexture" id=9]
 viewport_path = NodePath("TextBoxA/Viewport")
 
+[sub_resource type="ViewportTexture" id=14]
+viewport_path = NodePath("TextBoxA2/Viewport")
+
+[sub_resource type="ViewportTexture" id=16]
+viewport_path = NodePath("TextBoxA3/Viewport")
+
 [sub_resource type="ViewportTexture" id=10]
 viewport_path = NodePath("TextBoxB/Viewport")
 
+[sub_resource type="ViewportTexture" id=15]
+viewport_path = NodePath("TextBoxB2/Viewport")
+
 [sub_resource type="CubeMesh" id=11]
+
+[sub_resource type="SpatialMaterial" id=17]
+albedo_texture = ExtResource( 8 )
+uv1_scale = Vector3( 2, 2, 2 )
+uv1_offset = Vector3( -0.5, 0.174, 0 )
+
+[sub_resource type="CubeMesh" id=18]
+
+[sub_resource type="SpatialMaterial" id=19]
+flags_transparent = true
+albedo_texture = ExtResource( 9 )
+uv1_scale = Vector3( 2.088, 1.514, 2 )
+uv1_offset = Vector3( 0.436, 0.325, 0 )
 
 [sub_resource type="CubeMesh" id=12]
 
@@ -330,7 +355,7 @@ shape = SubResource( 6 )
 shape = SubResource( 7 )
 
 [node name="TextBoxA" type="Spatial" parent="."]
-transform = Transform( 0.631842, 0, 0, 0, -4.37114e-08, 1, 0, -0.370736, -1.62054e-08, -11.6364, 0.266996, -4.08984 )
+transform = Transform( 0.631842, 0, 0, 0, -4.37114e-08, 1, 0, -0.566885, -2.47794e-08, -11.708, 0.204203, -4.15394 )
 
 [node name="Viewport" type="Viewport" parent="TextBoxA"]
 size = Vector2( 800, 200 )
@@ -347,9 +372,54 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Sprite3D" type="Sprite3D" parent="TextBoxA"]
+[node name="Sprite3D_A" type="Sprite3D" parent="TextBoxA"]
 flip_v = true
 texture = SubResource( 9 )
+
+[node name="TextBoxA2" type="Spatial" parent="."]
+transform = Transform( 0.602903, 0.110915, 4.84823e-09, 0, -4.37114e-08, 1, 0.189031, -0.353756, -1.54632e-08, -12.4955, 0.0565172, 4.68891 )
+
+[node name="Viewport" type="Viewport" parent="TextBoxA2"]
+size = Vector2( 800, 200 )
+transparent_bg = true
+
+[node name="Label" type="Label" parent="TextBoxA2/Viewport"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 5 )
+text = "Previous Best"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite3D_2A" type="Sprite3D" parent="TextBoxA2"]
+flip_v = true
+texture = SubResource( 14 )
+
+[node name="TextBoxA3" type="Spatial" parent="."]
+transform = Transform( 0.631842, 0, 0, 0, -4.37114e-08, 1, 0, -0.566885, -2.47794e-08, 12.485, 0.204203, 2.80072 )
+
+[node name="Viewport" type="Viewport" parent="TextBoxA3"]
+size = Vector2( 800, 200 )
+transparent_bg = true
+
+[node name="Label" type="Label" parent="TextBoxA3/Viewport"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 5 )
+text = "Finish Game"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite3D_A3" type="Sprite3D" parent="TextBoxA3"]
+transform = Transform( 0.980785, -0.175034, -7.65099e-09, 0.217445, 0.980785, -8.39908e-10, 9.50481e-09, -8.3989e-10, 1, 0.241419, 0.616207, -5.96046e-08 )
+flip_v = true
+texture = SubResource( 16 )
 
 [node name="TextBoxB" type="Spatial" parent="."]
 transform = Transform( 1.38561, 0, 0, 0, -4.37114e-08, 1, 0, -1.67673, -7.32923e-08, -12.0394, 0.0331458, -2.7688 )
@@ -374,12 +444,51 @@ __meta__ = {
 flip_v = true
 texture = SubResource( 10 )
 
-[node name="MeshInstance" type="MeshInstance" parent="."]
+[node name="TextBoxB2" type="Spatial" parent="."]
+transform = Transform( 1.32293, 0.498617, 2.17953e-08, 0, -4.37114e-08, 1, 0.412046, -1.60088, -6.99766e-08, -13.215, 0.0331458, 6.15627 )
+
+[node name="Viewport" type="Viewport" parent="TextBoxB2"]
+size = Vector2( 200, 200 )
+transparent_bg = true
+
+[node name="Label" type="Label" parent="TextBoxB2/Viewport"]
+anchor_right = 0.85
+margin_right = 40.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 5 )
+text = "0"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite3D" type="Sprite3D" parent="TextBoxB2"]
+flip_v = true
+texture = SubResource( 15 )
+
+[node name="Paper" type="MeshInstance" parent="."]
 transform = Transform( 2.96901, 0, 0, 0, 0.0519286, 0, 0, 0, 2.9139, -12.1195, -0.0508026, -2.77782 )
 mesh = SubResource( 11 )
 material/0 = null
 
-[node name="MeshInstance2" type="MeshInstance" parent="."]
+[node name="Paper2" type="MeshInstance" parent="."]
+transform = Transform( 2.83894, 0, -0.853012, 0, 0.0519286, 0, 0.869145, 0, 2.78625, -13.1306, -0.0508026, 6.29148 )
+mesh = SubResource( 11 )
+material/0 = null
+
+[node name="Paper3" type="MeshInstance" parent="."]
+transform = Transform( 2.91649, 0, 0.545661, 0, 0.0519286, 0, -0.555981, 0, 2.86235, 12.5547, -0.0508026, 3.9321 )
+mesh = SubResource( 11 )
+material/0 = SubResource( 17 )
+
+[node name="Cross" type="MeshInstance" parent="."]
+transform = Transform( 0.696125, 0, 0.283132, 0, 0.000408146, 0, -0.288487, 0, 0.683204, 12.6201, 0.00551331, 4.43853 )
+mesh = SubResource( 18 )
+skeleton = NodePath("../Paper3")
+material/0 = SubResource( 19 )
+
+[node name="Wood" type="MeshInstance" parent="."]
 transform = Transform( 19.6536, 0, 0, 0, 1, 0, 0, 0, 10.9788, 0, -1.03311, 0 )
 mesh = SubResource( 12 )
 material/0 = SubResource( 13 )
@@ -390,5 +499,8 @@ light_color = Color( 0.992157, 0.988235, 0.909804, 1 )
 light_energy = 0.5
 shadow_enabled = true
 shadow_color = Color( 0.25098, 0.25098, 0.27451, 1 )
+
+[node name="Button" parent="." instance=ExtResource( 7 )]
+transform = Transform( 0.381, -0.458, 0.203, 0.059, 0.676, -0.061, -0.197, 0.006, 0.453, 7.874, 4.931, 3.868 )
 
 [connection signal="body_entered" from="FloorArea" to="." method="_on_FloorArea_body_entered"]

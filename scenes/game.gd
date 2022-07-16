@@ -4,13 +4,16 @@ onready var camera = $Camera
 onready var cursor = $Cursor
 onready var score_box = $TextBoxB
 onready var score_label = $TextBoxB/Viewport/Label
+onready var previous_score_label = $TextBoxB2/Viewport/Label
+onready var button = $Button
+onready var cross = $Cross
 
 onready var die = preload("res://scenes/die.tscn")
 
 var mouse_pos = Vector2()
 var point = Vector3()
 var z_depth = 8
-signal fire_click(boolean)
+signal fire_click()
 enum States {PLACING, REROLLING, RESOLVING}
 var current_state = States.PLACING
 var squares = [[],[],[],[],[]]
@@ -18,6 +21,8 @@ var square_groups = ["A_squares", "B_squares", "C_squares", "D_squares", "E_squa
 var grid = [[],[],[],[],[]]
 var grid_groups = ["A_grid", "B_grid", "C_grid", "D_grid", "E_grid"]
 var score = 0
+var previous_score = 0
+var click_check = false
 
 func _ready():
 	for n in 5:
@@ -28,13 +33,20 @@ func _ready():
 		row = get_tree().get_nodes_in_group(grid_groups[n])
 		for position in row:
 			grid[n].append(position)
+	button.connect("button_clicked", self, "next_game")
+	cross.visible = false
 
 func _input(event):
 	if(current_state == States.PLACING and event.is_action_pressed("click")):
-		emit_signal("fire_click", true)
+		emit_signal("fire_click")
 		current_state = States.REROLLING
+		click_check = true
+		yield(get_tree().create_timer(2), "timeout")
+		if (click_check):
+			current_state = States.PLACING
 
 func _physics_process(delta):
+	print(current_state)
 	point = _mouse_track()
 	cursor.translation = point
 
@@ -91,7 +103,6 @@ func check_adjacent_in_grid(indices):
 			right.get_children()[0].reroll()
 	return rerolling
 
-
 func spawn_die(grid_position):
 	var new_die = die.instance()
 	grid_position.add_child(new_die)
@@ -123,8 +134,31 @@ func update_score():
 #	yield(get_tree().create_timer(.1), "timeout")
 #	score_box.global_scale(Vector3(1, 1, 0.8))
 
+func next_game():
+	cross.visible = true
+	update_score()
+	if (score > previous_score):
+		previous_score = score
+		previous_score_label.text = str(previous_score)
+	yield(get_tree().create_timer(0.5), "timeout")
+	reset_game()
+
+func reset_game():
+	cross.visible = false
+	for row in grid:
+		for element in row:
+			for n in element.get_children():
+				element.remove_child(n)
+	for row in squares:
+		for element in row:
+			element.reset_filled()
+	score = 0
+	score_label.text = "0"
+	current_state = States.PLACING
+
 func _on_FloorArea_body_entered(body):
 	if(body.has_method("tell_rotation")):
+		click_check = false
 		if (current_state == States.REROLLING):
 			var grid_position = body.get_parent()
 			var indices = check_grid(grid_position)
