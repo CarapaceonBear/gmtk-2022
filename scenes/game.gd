@@ -2,6 +2,8 @@ extends Spatial
 
 onready var camera = $Camera
 onready var cursor = $Cursor
+onready var score_box = $TextBoxB
+onready var score_label = $TextBoxB/Viewport/Label
 
 onready var die = preload("res://scenes/die.tscn")
 
@@ -15,6 +17,7 @@ var squares = [[],[],[],[],[]]
 var square_groups = ["A_squares", "B_squares", "C_squares", "D_squares", "E_squares"]
 var grid = [[],[],[],[],[]]
 var grid_groups = ["A_grid", "B_grid", "C_grid", "D_grid", "E_grid"]
+var score = 0
 
 func _ready():
 	for n in 5:
@@ -70,21 +73,29 @@ func check_adjacent_in_grid(indices):
 		var above = grid[indices[0] - 1][indices[1]]
 		if (above.get_child_count() != 0):
 			rerolling = true
+			var current_value = get_value_from_rotation(above.get_children()[0].tell_rotation())
+			update_score(current_value, false)
 			above.get_children()[0].reroll()
 	if (indices[0] != 4):
 		var below = grid[indices[0] + 1][indices[1]]
 		if (below.get_child_count() != 0):
 			rerolling = true
+			var current_value = get_value_from_rotation(below.get_children()[0].tell_rotation())
+			update_score(current_value, false)
 			below.get_children()[0].reroll()
 	if (indices[1] != 0):
 		var left = grid[indices[0]][indices[1] - 1]
 		if (left.get_child_count() != 0):
 			rerolling = true
+			var current_value = get_value_from_rotation(left.get_children()[0].tell_rotation())
+			update_score(current_value, false)
 			left.get_children()[0].reroll()
 	if (indices[1] != 4):
 		var right = grid[indices[0]][indices[1] + 1]
 		if (right.get_child_count() != 0):
 			rerolling = true
+			var current_value = get_value_from_rotation(right.get_children()[0].tell_rotation())
+			update_score(current_value, false)
 			right.get_children()[0].reroll()
 	return rerolling
 
@@ -106,7 +117,17 @@ func get_value_from_rotation(rotation):
 		value = 5
 	elif ((rotation.z > 178 and rotation.z < 182) or (rotation.z < -178 and rotation.z > -182)):
 		value = 6
-	print(value)
+	return (value)
+
+func update_score(value, add):
+	if (add):
+		score += value
+	else:
+		score -= value
+	score_label.text = str(score)
+	score_box.global_scale(Vector3(1, 1, 1.2))
+	yield(get_tree().create_timer(.1), "timeout")
+	score_box.global_scale(Vector3(1, 1, 0.8))
 
 func _on_FloorArea_body_entered(body):
 	if(body.has_method("tell_rotation")):
@@ -119,7 +140,8 @@ func _on_FloorArea_body_entered(body):
 				current_state = States.PLACING
 		yield(get_tree().create_timer(1), "timeout")
 		var die_rotation = body.tell_rotation()
-		get_value_from_rotation(die_rotation)
+		var value = get_value_from_rotation(die_rotation)
+		update_score(value, true)
 		if (current_state == States.RESOLVING):
 #			yield(get_tree().create_timer(1), "timeout")
 			current_state = States.PLACING

@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://scenes/table.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/game.gd" type="Script" id=2]
 [ext_resource path="res://scenes/square.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/walls_physics.tres" type="PhysicsMaterial" id=4]
+[ext_resource path="res://fonts/IndieFlower-Regular.ttf" type="DynamicFontData" id=5]
 
 [sub_resource type="CubeMesh" id=1]
 
@@ -24,6 +25,18 @@ extents = Vector3( 0.0324278, 2.02154, 6.91681 )
 
 [sub_resource type="BoxShape" id=7]
 extents = Vector3( 7.26081, 0.33223, 7.14633 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 124
+font_data = ExtResource( 5 )
+
+[sub_resource type="ViewportTexture" id=9]
+viewport_path = NodePath("TextBox/Viewport")
+
+[sub_resource type="ViewportTexture" id=10]
+viewport_path = NodePath("TextBoxB/Viewport")
+
+[sub_resource type="CubeMesh" id=11]
 
 [node name="Game" type="Spatial"]
 script = ExtResource( 2 )
@@ -310,5 +323,54 @@ shape = SubResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="FloorArea"]
 shape = SubResource( 7 )
+
+[node name="TextBoxA" type="Spatial" parent="."]
+transform = Transform( 1.70429, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -11.8287, 0.0331458, -4.08984 )
+
+[node name="Viewport" type="Viewport" parent="TextBoxA"]
+size = Vector2( 800, 200 )
+transparent_bg = true
+
+[node name="Label" type="Label" parent="TextBoxA/Viewport"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 8 )
+text = "Current Score"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite3D" type="Sprite3D" parent="TextBoxA"]
+flip_v = true
+texture = SubResource( 9 )
+
+[node name="TextBoxB" type="Spatial" parent="."]
+transform = Transform( 1.38561, 0, 0, 0, -4.37114e-08, 1, 0, -1.67673, -7.32923e-08, -6.98666, 0.0331458, -2.7688 )
+
+[node name="Viewport" type="Viewport" parent="TextBoxB"]
+size = Vector2( 800, 200 )
+transparent_bg = true
+
+[node name="Label" type="Label" parent="TextBoxB/Viewport"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 8 )
+text = "0"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite3D" type="Sprite3D" parent="TextBoxB"]
+flip_v = true
+texture = SubResource( 10 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 2.96901, 0, 0, 0, 0.0519286, 0, 0, 0, 2.9139, -12.1195, -0.0508026, -2.77782 )
+mesh = SubResource( 11 )
+material/0 = null
 
 [connection signal="body_entered" from="FloorArea" to="." method="_on_FloorArea_body_entered"]
