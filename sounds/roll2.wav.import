@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/roll2.wav-85baca53441157a14ed7b85a9378d0b5.sample"
+
+[deps]
+
+source_file="res://sounds/roll2.wav"
+dest_files=[ "res://.import/roll2.wav-85baca53441157a14ed7b85a9378d0b5.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

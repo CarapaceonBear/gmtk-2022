@@ -23,8 +23,10 @@ var grid_groups = ["A_grid", "B_grid", "C_grid", "D_grid", "E_grid"]
 var score = 0
 var previous_score = 0
 var click_check = false
+var rng = RandomNumberGenerator.new()
 
 func _ready():
+	rng.randomize()
 	for n in 5:
 		var row = get_tree().get_nodes_in_group(square_groups[n])
 		for square in row:
@@ -35,6 +37,10 @@ func _ready():
 			grid[n].append(position)
 	button.connect("button_clicked", self, "next_game")
 	cross.visible = false
+	yield(get_tree().create_timer(1.4), "timeout")
+	$Sounds/Pencil.play()
+	yield(get_tree().create_timer(.7), "timeout")
+	$Sounds/Handfull.play()
 
 func _input(event):
 	if(current_state == States.PLACING and event.is_action_pressed("click")):
@@ -65,6 +71,7 @@ func check_squares(name):
 			x += 1
 		y += 1
 	var target_in_grid = grid[squares_indices[0]][squares_indices[1]]
+	play_sound()
 	spawn_die(target_in_grid)
 
 func check_grid(grid_position):
@@ -156,6 +163,20 @@ func reset_game():
 	score_label.text = "0"
 	current_state = States.PLACING
 
+func play_sound():
+	var which_sound = rng.randi_range(1, 5)
+	match (which_sound):
+		1:
+			$Sounds/Sound1.play()
+		2:
+			$Sounds/Sound2.play()
+		3:
+			$Sounds/Sound3.play()
+		4:
+			$Sounds/Sound4.play()
+		5:
+			$Sounds/Sound5.play()
+
 func _on_FloorArea_body_entered(body):
 	if(body.has_method("tell_rotation")):
 		click_check = false
@@ -164,7 +185,9 @@ func _on_FloorArea_body_entered(body):
 			var indices = check_grid(grid_position)
 			current_state = States.RESOLVING
 			var rerolling = check_adjacent_in_grid(indices)
-			if (!rerolling):
+			if (rerolling):
+				play_sound()
+			else:
 				current_state = States.PLACING
 		yield(get_tree().create_timer(1), "timeout")
 		update_score()
